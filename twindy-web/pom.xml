@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>twindy</artifactId>
+        <groupId>twindy.project</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>twindy-web</artifactId>
+    <packaging>war</packaging>
+
+    <name>twindy</name>
+    <url>http://www.twindy.org</url>
+
+    <build>
+        <finalName>twindy-web</finalName>
+    </build>
+</project>
