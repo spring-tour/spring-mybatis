@@ -16,8 +16,11 @@ public class AESUtils {
 
     private static final String Algorithm = "AES";
     private static final String DEFAULT_KEY = "ADdu!0#sdj%(&9dgfyLOVEHYABBYSTWINDYORGDnduH345$^32<>^&())hhlsav";
+
     /**
-     * the password for decrypt read from config file ,config file key is AES.passowrd
+     * 加密
+     * @param plainText
+     * @return
      */
     public static String encrypt(String plainText){
         return encrypt(plainText, DEFAULT_KEY);
