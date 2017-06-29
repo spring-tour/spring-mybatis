@@ -30,9 +30,11 @@
         <property name="removeAbandoned"  value="true"/>
     </bean>
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="twindy.common.db.PackagesSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="mapperLocations" value="classpath:sql/*.xml" />
+        <!--自动扫描所有的实体bean 支持通配符-->
+        <property name="typeAliasesPackage" value="twindy.admin.*.entity" />
     </bean>
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

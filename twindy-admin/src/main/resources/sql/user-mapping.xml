@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
 	<!-- 查询所有的发布记录 -->
-	<select id="queryUser" resultType="twindy.admin.user.entity.User" parameterType="twindy.admin.user.entity.User">
+	<select id="queryUser" resultType="user" parameterType="user">
 		SELECT
 			*
 		FROM
