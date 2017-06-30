@@ -28,6 +28,7 @@
         <version.httpclient>4.3.6</version.httpclient>
         <version.httpcore>4.3.2</version.httpcore>
         <version.mysql>5.1.29</version.mysql>
+        <version.ehcache.core>2.6.11</version.ehcache.core>
     </properties>
 
     <dependencies>
@@ -232,6 +233,12 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>${version.httpcore}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache-core -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${version.ehcache.core}</version>
         </dependency>
 
     </dependencies>
