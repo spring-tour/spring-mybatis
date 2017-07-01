@@ -9,7 +9,7 @@
     <artifactId>twindy-common</artifactId>
     <packaging>jar</packaging>
 
-    <name>twindy</name>
+    <name>twindy-common</name>
     <url>http://www.twindy.org</url>
 
     <properties>

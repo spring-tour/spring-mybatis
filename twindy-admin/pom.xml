@@ -9,7 +9,7 @@
     <artifactId>twindy-admin</artifactId>
     <packaging>war</packaging>
 
-    <name>twindy</name>
+    <name>twindy-admin</name>
     <url>http://www.twindy.org</url>
 
     <dependencies>
