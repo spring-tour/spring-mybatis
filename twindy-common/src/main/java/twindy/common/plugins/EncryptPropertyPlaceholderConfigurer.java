@@ -14,8 +14,8 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
 
 	/**
 	 * 解密指定propertyName的加密属性值
-	 * @param propertyName
-	 * @param propertyValue
+	 * @param propertyName 属性名
+	 * @param propertyValue 属性值
 	 * @return
 	 */
 	@Override
@@ -27,5 +27,4 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
 		}
 		return super.convertProperty(propertyName, propertyValue);
 	}
-
 }

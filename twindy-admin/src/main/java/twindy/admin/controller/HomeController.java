@@ -1,12 +1,15 @@
 package twindy.admin.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import twindy.common.utils.encrypt.Base64Utils;
+import twindy.admin.user.entity.User;
+import twindy.admin.user.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,16 +23,18 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
+    @Autowired
+    private UserService userService;
     private static final Log log = LogFactory.getLog(HomeController.class);
 
+
     @ResponseBody
-    @RequestMapping(value = {"/aa"})
+    @RequestMapping(value = {"/user"})
     public JSONObject doAction() {
-        JSONObject json = new JSONObject();
-        log.info(Base64Utils.encode("aaaa"));
-        json.put("1", "中国");
-        json.put("2", "美国");
-        json.put("3", "朝鲜");
+        User user = new User();
+        user.setId("1");
+        JSONObject json = (JSONObject) JSON.toJSON(userService.queryUser(user));
+        log.info(json);
         return json;
     }
 
