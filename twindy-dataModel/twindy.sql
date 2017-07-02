@@ -43,3 +43,18 @@ CREATE TABLE `t_admin` (
   KEY `IDX_IPHONE_NO` (`phoneNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- t_daily_article 每日一文
+DROP TABLE IF EXISTS `t_daily_article`;
+CREATE TABLE `t_daily_article` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '文章ID',
+  `author` varchar(100) DEFAULT NULL COMMENT '作者',
+  `title` varchar(100) DEFAULT NULL COMMENT '文章标题',
+  `firstParagraph` text COMMENT '文章首段',
+  `content` text COMMENT '文章内容',
+  `status` int(11) DEFAULT '0' COMMENT '状态（0：正常）',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `IDX_AUTHOR` (`author`) USING BTREE,
+  KEY `IDX_TITLE` (`title`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

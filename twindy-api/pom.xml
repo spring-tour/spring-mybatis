@@ -6,10 +6,10 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>twindy-admin</artifactId>
+    <artifactId>twindy-api</artifactId>
     <packaging>war</packaging>
 
-    <name>twindy-admin</name>
+    <name>twindy-api</name>
     <url>https://www.twindy.org</url>
 
     <dependencies>
@@ -20,22 +20,4 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>twindy-admin</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-                <executions>
-                    <execution>
-                        <id>Generate MyBatis Artifacts</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>
