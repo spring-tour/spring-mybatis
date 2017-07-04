@@ -26,5 +26,6 @@
         <module>twindy-web</module>
         <module>twindy-sso</module>
         <module>twindy-api</module>
+        <module>twindy-weixin</module>
     </modules>
 </project>
