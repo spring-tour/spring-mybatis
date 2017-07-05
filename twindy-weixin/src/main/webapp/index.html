@@ -3,8 +3,77 @@
     <head>
         <meta charset="UTF-8">
         <title>twindy-weixn</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-touch-fullscreen" content="YES">
+        <meta name="full-screen" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="email=no">
     </head>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <body>
         <p>welcome to twindy-weixin</p>
+        <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri=https%3A%2F%2Fchong.qq.com%2Fphp%2Findex.php%3Fd%3D%26c%3DwxAdap
+ter%26m%3DmobileDeal%26showwxpaytitle%3D1%26vb2ctag%3D4_2030_5_1194_60&response_type=code&scope=snsapi_bas
+e&state=123#wechat_redirect ">测试地址</a>
+        <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=
+code&scope=snsapi_userinfo&state=STATE#wechat_redirect">测试地址2</a>
     </body>
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: "portal/oauth",
+            success: function (data) {
+                window.location.href = data;
+                console.log(data);
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $.ajax({
+            type: 'GET',
+            url: "portal/js_api_configs" ,
+            data: {
+                "currentUrl": window.location.href
+            } ,
+            success: function (data) {
+                wx.config({
+                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: ["onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareTimeline", "onMenuShareWeibo", "onMenuShareQZone"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            }
+        });
+        wx.ready(function(){
+            wx.onMenuShareTimeline({
+                title: '这是一首简单的小情歌', // 分享标题
+                link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://twindyorg.tunnel.echomod.cn/twindy/weixin/photo_default.png', // 分享图标
+                success: function () {
+                    alert("分享成功");
+                },
+                cancel: function () {
+                    alert("分享取消");
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '这是一首简单的小情歌', // 分享标题
+                link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://twindyorg.tunnel.echomod.cn/twindy/weixin/photo_default.png', // 分享图标
+                success: function () {
+                    alert("分享成功");
+                },
+                cancel: function () {
+                    alert("分享取消");
+                }
+            });
+        });
+        wx.error(function(res){
+            console.log(res)
+        });
+
+    </script>
 </html>
