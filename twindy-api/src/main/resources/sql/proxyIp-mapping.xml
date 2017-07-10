@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+		<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="proxyIp">
+	<!-- 查询记录 -->
+	<select id="queryProxyIpList" resultType="ProxyIp">
+		SELECT
+			*
+		FROM
+			t_proxy_ip
+		ORDER BY
+			createTime DESC limit 1, 100
+	</select>
+
+	<!--添加记录-->
+	<insert id="addProxyIp" parameterType="ProxyIp">
+		INSERT INTO
+			t_proxy_ip (ipAddress, port, serverAddress, httpType, responseTime, proxyType, status, createTime, updateTime)
+		VALUES
+			(#{ipAddress}, #{port}, #{serverAddress}, #{httpType}, #{responseTime}, #{proxyType}, #{status}, #{createTime},#{updateTime})
+	</insert>
+
+	<!-- 删除记录 -->
+	<delete id="deleteProxyIp" parameterType="ProxyIp">
+		DELETE FROM
+			t_proxy_ip
+		WHERE
+			id = #{id}
+	</delete>
+
+	<!-- 更新记录 -->
+	<update id="updateProxyIp" parameterType="ProxyIp">
+		UPDATE
+			t_proxy_ip
+		SET
+			responseTime = #{responseTime}, status = #{status}, updateTime = #{updateTime}
+		WHERE
+			id = #{id}
+	</update>
+</mapper>
